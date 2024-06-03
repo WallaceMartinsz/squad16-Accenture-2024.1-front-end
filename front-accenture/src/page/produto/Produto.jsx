@@ -12,8 +12,7 @@ export const Produto = () => {
         nome: "",
         preco: "",
         quantidade: "",
-        descricao: "",
-        clienteId: ""
+        descricao: ""
     })
 
     const handleChange = (e) => {
@@ -31,7 +30,8 @@ export const Produto = () => {
 
     const handlePostRequest = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/produtos/cliente/21', form);
+            const userId = localStorage.getItem('userId');
+            const response = await axios.post(`http://localhost:8080/produtos/cliente/${userId}`, form);
             console.log('Response from server:', response.data);
         } catch (error) {
             console.error('Error making POST request:', error);
@@ -102,16 +102,7 @@ export const Produto = () => {
                         onBlur={(e) => handleChange(e)}
                     ></Button>
                     <>{emptyValue && form["descricao"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='clientId'
-                        placeholder='Digite a descrição do produto'
-                        id='clienteId'
-                        name='clienteId'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["clienteId"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
+                    
 
                     <Button
                         divClassName='login-form-button'
