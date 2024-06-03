@@ -11,6 +11,7 @@ import { Pagamento } from './page/pagamento/Pagamento';
 import { SelecionarCadastro } from './page/selecionarCadastro/SelecionarCadastro';
 import { CadastroLojas } from './page/singin/CadastroLoja';
 import { CadastroEntregadores } from './page/singin/CadastroEntregadores';
+import MyProductsPage from './page/meusProdutos/meusProdutos';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/cadastroEntregador" Component={CadastroEntregadores} />
           <Route path="/lojas" Component={Lojas} />
           <Route path="/" Component={Home} />
+          <Route path='/meusProdutos' Component={MyProductsPage} />
           <Route path="/produtos" Component={Produto} />
           <Route path="/carrinho" Component={Carrinho} />
           <Route path="/pagamento" Component={Pagamento} />
