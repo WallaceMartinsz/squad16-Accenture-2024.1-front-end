@@ -7,7 +7,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 function Login() {
     const navigate = useNavigate();
 
@@ -28,47 +27,48 @@ function Login() {
         e.preventDefault()
         let emptyValues = Object.values(form).some(obj => obj === "")
         setEmptyValue(emptyValues)
-
     }
 
     const handlePostRequest = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/login', form, {
-                headers: {
-                    'Content-Type': 'application/json'
-        }});
+            const response = await axios.post('http://localhost:8080/login', form);
+
             console.log('Response from server:', response.data);
-            const clientId = response.data.id;
+            
+            localStorage.setItem('userId', response.data.idCliente);
+
+            navigate('/');
         } catch (error) {
             console.error('Error making POST request:', error);
-            alert('Faça um login válido!')
+            alert('Faça um login válido!');
         }
     };
-
 
     return (
         <div className='container'>
             <div className='container-login'>
-                <form className='login-form' onSubmit={(e) => { handleSubmit(e) }}>
+                <form className='login-form' onSubmit={(e) => { handleSubmit(e); handlePostRequest(); }}>
                     <div className='login-form-title'>
                         <span className='title'>Acesse sua conta</span>
                     </div>
 
-                    <Button 
-                        divClassName='wrap-input' 
-                        classInputName='input' 
-                        label='login:' 
-                        type='input' 
-                        placeholder='Digite seu email' 
+                    <Button
+                        divClassName='wrap-input'
+                        classInputName='input'
+                        name='login' 
+                        label='login:'
+                        type='input'
+                        placeholder='Digite seu email'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
 
-                    <Button 
-                        divClassName='wrap-input' 
-                        label='senha:' 
-                        classInputName='input' 
-                        type='password' 
-                        placeholder='Digite sua senha' 
+                    <Button
+                        divClassName='wrap-input'
+                        label='senha:'
+                        name='senha'
+                        classInputName='input'
+                        type='password'
+                        placeholder='Digite sua senha'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
 
@@ -83,7 +83,6 @@ function Login() {
                         classInputName='login-form-btn'
                         type='submit'
                         value='Entrar'
-                        onClick={handlePostRequest}
                     ></Button>
 
                     <div className='or-divider'>
