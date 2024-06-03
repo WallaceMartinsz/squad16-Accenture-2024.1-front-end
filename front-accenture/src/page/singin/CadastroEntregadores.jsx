@@ -81,16 +81,6 @@ export const CadastroEntregadores = () => {
                     ></Button>
                     <>{emptyValue && form["email"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
 
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='Digite seu email'
-                        placeholder='example@example.com'
-                        id='email'
-                        name='email'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["email"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
                     <div className='divButton'>
                         <label htmlFor="categoria">Qual seu veiculo?</label>
                         <select onChange={(e) => handleChange(e)} name="veiculo">
@@ -116,7 +106,8 @@ export const CadastroEntregadores = () => {
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
                         label='Digite sua senha:'
-                        placeholder='Crie uma senha forte!'
+                        placeholder='*********'
+                        type='password'
                         id='senha'
                         name='senha'
                         onBlur={(e) => handleChange(e)}

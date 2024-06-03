@@ -82,7 +82,8 @@ export const CadastroLojas = () => {
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
                         label='Digite sua senha:'
-                        placeholder='Crie uma senha forte!'
+                        placeholder='*********'
+                        type='password'
                         id='senha'
                         name='senha'
                         onBlur={(e) => handleChange(e)}
