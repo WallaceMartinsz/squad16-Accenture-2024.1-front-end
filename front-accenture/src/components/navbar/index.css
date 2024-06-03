@@ -1,27 +1,58 @@
 .navbar {
-    border-bottom: 1px solid #e5e7eb; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    padding: 10px 20px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 250px; 
-  }
-  
-  .links {
-    display: flex;
-  }
-  
-  .links a {
-    color: #374151;
-    text-decoration: none;
-    margin-left: 20px;
-  }
-  
-  .links a:hover {
-    text-decoration: underline;
-  }
-  
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 250px;
+}
+
+.links {
+  display: flex;
+}
+
+.links a {
+  color: #374151;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.anunciar-button,
+.logout-button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.anunciar-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.anunciar-button:hover {
+  background-color: #45a049;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
